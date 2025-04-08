@@ -1,157 +1,236 @@
-# Statistics Cheat Sheet
+# Statistics Q&A Cheat Sheet
 
-This document provides concise explanations and formulas for key statistical concepts.
-
----
-
-## 1. Difference Between Mean, Median, and Mode
-**Mean**: Average of all values.  
-**Median**: Middle value in an ordered dataset.  
-**Mode**: Most frequently occurring value.
-
+## 1. What is the difference between mean, median, and mode?
+**Mean:** The average of all values.  
+**Median:** The middle value in an ordered dataset.  
+**Mode:** The most frequently occurring value.  
 **Formulas:**  
 - Mean: \( \bar{x} = \frac{\sum x_i}{n} \)  
-- Median: Middle value (or average of two middle values if \( n \) is even)  
-- Mode: Value with the highest frequency
+- Median: Middle value (or average of two middle values if \( n \) is even).  
+- Mode: Value with the highest frequency.  
+**Example:** For \([2,3,3,5,7]\): Mean = 4, Median = 3, Mode = 3.
 
-**Example:** [2, 3, 3, 5, 7] → Mean = 4, Median = 3, Mode = 3
+## 2. How do outliers affect the mean and median?
+**Outliers:** Extreme values that deviate significantly from other observations.  
+**Effect:**  
+- Mean: Sensitive to outliers.  
+- Median: Robust to outliers.  
+**Example:** For \([1,2,3,4,100]\): Mean = 22, Median = 3.
 
----
+## 3. What is the formula for calculating variance?
+**Variance:** Measures spread around the mean.  
+**Formulas:**  
+- Population: \( \sigma^2 = \frac{\sum(x_i - \mu)^2}{N} \)  
+- Sample: \( s^2 = \frac{\sum(x_i - \bar{x})^2}{n - 1} \)  
+**Example:** For \([1,2,3,4,5]\), sample variance = 2.5.
 
-## 2–25. [Omitted for brevity – Assume content exists here.]
+## 4. What does a standard deviation of zero indicate?
+**Standard Deviation:** Average distance from the mean.  
+**If \( \sigma = 0 \):** All values are identical.  
+**Example:** \([5,5,5]\) has \( \sigma = 0 \).
 
----
+## 5. Explain the interquartile range (IQR) and its use.
+**IQR:** \( Q3 - Q1 \), the middle 50% spread.  
+**Use:** Detects outliers, summarizes spread.  
+**Example:** \([1,3,5,7,9]\): IQR = 4.
+
+## 6. What is skewness? Describe left-skewed and right-skewed distributions.
+**Skewness:** Asymmetry in data.  
+- Left-skewed: Tail on left (Mean < Median)  
+- Right-skewed: Tail on right (Mean > Median)  
+**Example:** Income is typically right-skewed.
+
+## 7. How do you identify outliers using the IQR method?
+**Outliers:** \( < Q1 - 1.5 \times IQR \) or \( > Q3 + 1.5 \times IQR \).  
+**Steps:**  
+1. Compute Q1 and Q3  
+2. Calculate IQR  
+3. Define bounds  
+**Example:** For \([1,3,5,7,9]\): Outliers \(< -3\) or \(> 13\).
+
+## 8. What is kurtosis, and how does it differ from skewness?
+**Kurtosis:** Measures tail heaviness.  
+**Skewness:** Measures asymmetry.  
+- Leptokurtic: Heavy tails  
+- Platykurtic: Light tails
+
+## 9. What is the empirical rule (68-95-99.7 rule)?
+**Rule:** In normal distribution:  
+- 68% within \( \mu \pm \sigma \)  
+- 95% within \( \mu \pm 2\sigma \)  
+- 99.7% within \( \mu \pm 3\sigma \)
+
+## 10. What is the difference between a population and a sample?
+- **Population:** Entire group of interest.  
+- **Sample:** Subset of population.
+
+## 11. What is a percentile? How is it different from a quartile?
+- **Percentile:** Value below which a % of data falls.  
+- **Quartile:** 25th, 50th, 75th percentiles.
+
+## 12. How do you calculate the coefficient of variation?
+**Formula:** \( CV = \frac{\sigma}{\mu} \times 100\% \)  
+**Example:** \( \sigma = 10, \mu = 50 \Rightarrow CV = 20\% \)
+
+## 13. What is the difference between range and IQR?
+- **Range:** Max - Min  
+- **IQR:** Q3 - Q1  
+- **Key:** IQR is robust to outliers.
+
+## 14. What does a box plot show?
+**Box Plot:** Visual summary showing:  
+- Median  
+- Quartiles  
+- Outliers
+
+## 15. What is the relationship between variance and standard deviation?
+**Std. Dev. (\( \sigma \)) :** Square root of variance.  
+**Formula:** \( \sigma = \sqrt{\sigma^2} \)
+
+## 16. When would you prefer the median over the mean?
+**Use Median:** For skewed or outlier-prone data.
+
+## 17. What is the 5-number summary?
+**Summary:** Min, Q1, Median, Q3, Max
+
+## 18. How do you interpret a z-score?
+**Z-score:** Number of SDs from mean.  
+**Formula:** \( z = \frac{x - \mu}{\sigma} \)  
+**Example:** \( z = 2 \Rightarrow 2 SDs above mean \)
+
+## 19. What does a covariance of zero imply?
+**Covariance = 0:** No linear relationship.
+
+## 20. What is the difference between descriptive and inferential statistics?
+- **Descriptive:** Summarizes data.  
+- **Inferential:** Generalizes/predicts.
+
+## 21. What is the trimmed mean, and when is it useful?
+**Trimmed Mean:** Removes extremes before averaging.  
+**Use:** Reduces outlier effects.
+
+## 22. How does the geometric mean differ from the arithmetic mean?
+- **Geometric Mean:** \( \sqrt[n]{x_1 x_2 \dots x_n} \)  
+- **Arithmetic Mean:** Regular average  
+**Use:** Multiplicative data (growth).
+
+## 23. What is the harmonic mean, and where is it applied?
+**Harmonic Mean:** \( HM = \frac{n}{\sum \frac{1}{x_i}} \)  
+**Use:** Rates and ratios.
+
+## 24. Explain Winsorizing and its purpose.
+**Winsorizing:** Replaces outliers with nearest non-outliers.  
+**Purpose:** Reduce outlier influence.
+
+## 25. What is the midrange, and why is it rarely used?
+**Midrange:** \( \frac{\text{Min} + \text{Max}}{2} \)  
+**Drawback:** Sensitive to outliers.
 
 ## 26. What is Chebyshev’s inequality, and how is it used?
-**Definition**: A theorem stating that at least \(1 - \frac{1}{k^2}\) of data lies within k standard deviations from the mean, regardless of the distribution.  
-**Formula**: \(P(|X−\mu| ≥ k\sigma) ≤ \frac{1}{k^2}\)  
-**Example**: For k=2, at least \(1−\frac{1}{4} = 75\%\) of data lies within 2 SDs of the mean.
+**Definition:** At least \(1 - \frac{1}{k^2}\) of data lies within k standard deviations from the mean, regardless of distribution.  
+**Formula:** \( P(|X - \mu| \geq k\sigma) \leq \frac{1}{k^2} \)  
+**Example:** For \(k=2\), at least 75% lies within 2 SDs.
 
 ## 27. What is the Durbin-Watson statistic?
-**Definition**: A test for autocorrelation in regression residuals.  
-**Range**: 0 to 4.  
-- 2: No autocorrelation.  
-- <2: Positive autocorrelation.  
-- >2: Negative autocorrelation.  
-**Use**: Detect serial correlation in time series data.
+**Definition:** Test for autocorrelation in regression residuals.  
+**Range:** 0 to 4.  
+**Use:** 2 = no autocorrelation, <2 = positive, >2 = negative autocorrelation.
 
 ## 28. What is the difference between sample size and standard error?
-**Sample Size (n)**: Number of observations.  
-**Standard Error (SE)**: \(SE = \frac{\sigma}{\sqrt{n}}\)  
-**Relationship**: Larger n reduces SE, increasing precision.  
-**Example**: If \(\sigma = 10\) and \(n = 100\), then \(SE = 1\).
+**Sample Size (n):** Number of observations.  
+**Standard Error (SE):** \( SE = \frac{\sigma}{\sqrt{n}} \)  
+**Example:** If \( \sigma = 10, n = 100 \Rightarrow SE = 1 \)
 
 ## 29. What is the Gini coefficient, and how is it calculated?
-**Definition**: Measures inequality in a distribution.  
-**Formula**: \(G = \frac{\sum_{i=1}^{n}\sum_{j=1}^{n} |x_i - x_j|}{2n^2\mu}\)  
-**Range**: 0 (Perfect equality) to 1 (Maximum inequality).  
-**Example**: Used to assess income inequality.
+**Definition:** Measures inequality in a distribution.  
+**Range:** 0 (equality) to 1 (inequality).  
+**Formula:** \( G = \frac{\sum_{i=1}^{n}\sum_{j=1}^{n} |x_i - x_j|}{2n^2\mu} \)
 
 ## 30. What is entropy in the context of data distributions?
-**Definition**: Measures uncertainty or disorder in a distribution.  
-**Formula**: \(H(X) = −\sum_{i=1}^{n} p(x_i) \log p(x_i)\)  
-**Example**: A fair coin toss has entropy \(H = 1\) bit.
+**Definition:** Measures uncertainty or disorder.  
+**Formula:** \( H(X) = -\sum_{i=1}^{n} p(x_i) \log p(x_i) \)  
+**Example:** Fair coin toss has \( H = 1 \) bit.
 
 ## 31. What is the Jaccard similarity coefficient?
-**Definition**: Measures similarity between two sets.  
-**Formula**: \(J(A,B) = \frac{|A \cap B|}{|A \cup B|}\)  
-**Example**: For sets A={1,2} and B={2,3}, \(J = \frac{1}{3}\).
+**Definition:** Similarity between sets.  
+**Formula:** \( J(A,B) = \frac{|A \cap B|}{|A \cup B|} \)  
+**Example:** A = {1,2}, B = {2,3} \( \Rightarrow J = \frac{1}{3} \)
 
 ## 32. How do you calculate weighted averages?
-**Formula**: \(\bar{x} = \frac{\sum w_i x_i}{\sum w_i}\)  
-**Example**: Course grade = \((0.3×80)+(0.7×90) = 87\)
+**Formula:** \( \bar{x} = \frac{\sum w_i x_i}{\sum w_i} \)  
+**Example:** (0.3 × 80 + 0.7 × 90) = 87
 
 ## 33. What is Spearman’s footrule?
-**Definition**: Measures rank correlation by summing absolute differences in ranks.  
-**Formula**: \(D = \sum_{i=1}^{n} |R_i - S_i|\)  
-**Use**: Less sensitive to outliers than Pearson’s correlation.
+**Definition:** Rank correlation using absolute rank differences.  
+**Formula:** \( D = \sum_{i=1}^{n} |R_i - S_i| \)
 
 ## 34. What is Kendall’s tau?
-**Definition**: Measures ordinal association between two variables.  
-**Formula**: \(\tau = \frac{2(C−D)}{n(n−1)}\)  
-- C: Concordant pairs.  
-- D: Discordant pairs.  
-**Range**: −1 to 1.
+**Definition:** Measures ordinal association.  
+**Formula:** \( \tau = \frac{2(C - D)}{n(n-1)} \)  
+**Range:** −1 to 1
 
 ## 35. What is Cronbach’s alpha?
-**Definition**: Measures internal consistency of a test.  
-**Formula**: \(\alpha = \frac{k}{k-1} \left(1 - \frac{\sum \sigma^2_i}{\sigma^2_X} \right)\)  
-- k: Number of items.  
-- \(\sigma^2\): Variance of item scores.  
-**Threshold**: \(\alpha > 0.7\) is acceptable.
+**Definition:** Measures internal consistency.  
+**Formula:** \( \alpha = \frac{k}{k - 1} \left(1 - \frac{\sum \sigma^2_i}{\sigma_X^2}\right) \)  
+**Threshold:** \( \alpha > 0.7 \) is acceptable
 
 ## 36. What is item response theory (IRT)?
-**Definition**: A framework to model the relationship between latent traits (e.g., ability) and observed responses.  
-**Example**: Used in standardized testing to score examinees.
+**Definition:** Models relationship between latent traits and responses.  
+**Use:** Standardized testing.
 
 ## 37. What is principal component analysis (PCA)?
-**Definition**: Reduces dimensionality by transforming data into orthogonal components.  
-**Steps**:  
-- Standardize data.  
-- Compute covariance matrix.  
-- Extract eigenvectors (principal components).  
-**Example**: Compress 10 variables into 2 PCs.
+**Definition:** Reduces dimensionality via orthogonal transformation.  
+**Steps:** Standardize, covariance, eigenvectors.  
+**Use:** Reduce 10D to 2D.
 
 ## 38. What is factor analysis?
-**Definition**: Identifies latent factors that explain correlations among observed variables.  
-**Example**: Grouping survey questions into underlying traits (e.g., "satisfaction").
+**Definition:** Identifies latent factors in variable correlations.  
+**Example:** Satisfaction factors from survey data.
 
 ## 39. What is canonical correlation?
-**Definition**: Measures the correlation between two sets of variables.  
-**Example**: Relationship between health metrics (e.g., BMI, BP) and lifestyle factors (e.g., diet, exercise).
+**Definition:** Correlation between two variable sets.  
+**Example:** Health (BMI, BP) vs. Lifestyle (diet, exercise).
 
 ## 40. What is multiple correspondence analysis?
-**Definition**: Extends correspondence analysis to categorical variables.  
-**Use**: Visualizes associations between categories.
+**Definition:** Visualizes associations in categorical variables.
 
 ## 41. What is t-distributed stochastic neighbor embedding (t-SNE)?
-**Definition**: A tool to visualize high-dimensional data in 2D/3D.  
-**Key Feature**: Preserves local structures (clusters).  
-**Example**: Visualizing clusters in gene expression data.
+**Definition:** Visualizes high-dimensional data in 2D/3D.  
+**Use:** Clusters, local structures (e.g., gene expression).
 
 ## 42. What is multidimensional scaling (MDS)?
-**Definition**: Represents pairwise distances between objects in lower dimensions.  
-**Example**: Mapping customer similarity based on purchasing behavior.
+**Definition:** Represents pairwise distances in lower dimensions.  
+**Example:** Customer similarity mapping.
 
 ## 43. What is cluster analysis?
-**Definition**: Groups similar data points into clusters.  
-**Methods**:  
-- K-means: Minimizes within-cluster variance.  
-- Hierarchical: Builds a dendrogram.
+**Definition:** Groups similar data points.  
+**Methods:** K-means (minimize variance), Hierarchical (dendrogram).
 
 ## 44. What is discriminant analysis?
-**Definition**: Classifies data into predefined groups.  
-**Types**:  
-- Linear (LDA): Assumes normality.  
-- Quadratic (QDA): Allows non-linear boundaries.
+**Definition:** Classifies into predefined groups.  
+**Types:** LDA (linear), QDA (non-linear).
 
 ## 45. What is survival analysis?
-**Definition**: Analyzes time-to-event data (e.g., death, failure).  
-**Key Metric**: Survival function \(S(t)=P(T>t)\).
+**Definition:** Analyzes time-to-event data.  
+**Key Metric:** \( S(t) = P(T > t) \)
 
 ## 46. What is time-to-event data?
-**Definition**: Data where the outcome is the time until an event occurs.  
-**Example**: Time until a customer churns.
+**Definition:** Measures time until an event occurs.  
+**Example:** Time to churn.
 
 ## 47. What is the hazard function?
-**Definition**: The instantaneous risk of an event at time t, given survival until t.  
-**Formula**: \(h(t)=\lim_{\Delta t→0} \frac{P(t≤T<t+\Delta t | T≥t)}{\Delta t}\)
+**Definition:** Instantaneous risk given survival until \( t \).  
+**Formula:** \( h(t) = \lim_{\Delta t \to 0} \frac{P(t \leq T < t + \Delta t \mid T \geq t)}{\Delta t} \)
 
 ## 48. What is censoring in survival analysis?
-**Definition**: When the event is not observed for some subjects.  
-**Types**:  
-- Right-censoring: Event not observed (e.g., study ends).  
-- Left-censoring: Event occurred before observation.
+**Definition:** Event time is incomplete.  
+**Types:** Right (not observed), Left (pre-observation).
 
 ## 49. What is the Kaplan-Meier estimator?
-**Definition**: Estimates the survival function non-parametrically.  
-**Formula**: \(S(t)= \prod_{t_i ≤ t}(1−\frac{d_i}{n_i})\)  
-- \(d_i\): Events at time \(t_i\).  
-- \(n_i\): Subjects at risk at \(t_i\).
+**Definition:** Estimates survival function non-parametrically.  
+**Formula:** \( S(t) = \prod_{t_i \leq t} \left(1 - \frac{d_i}{n_i}\right) \)
 
 ## 50. What is the Cox proportional hazards model?
-**Definition**: A regression model for survival data.  
-**Formula**: \(h(t)=h_0(t)\exp(\beta_1X_1 +⋯+\beta_pX_p)\)  
-- \(h_0(t)\): Baseline hazard.  
-- \(\beta\): Coefficients for predictors.
+**Definition:** Regression for survival data.  
+**Formula:** \( h(t) = h_0(t) \exp(\beta_1 X_1 + \ldots + \beta_p X_p) \)
 
